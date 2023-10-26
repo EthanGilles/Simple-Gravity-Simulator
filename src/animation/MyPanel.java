@@ -8,10 +8,11 @@ import javax.swing.*;
 
 public class MyPanel extends JPanel implements ActionListener {
 	
-	static final int PANEL_WIDTH = 800; // 800px
-	static final int PANEL_HEIGHT = 800; // 800px
+	static final int PANEL_WIDTH = 1200; // 800px
+	static final int PANEL_HEIGHT = 1000; // 800px
 	final int INTERVAL = 1; // 1 ms interval
-	final int PARTICLE_SIZE = 5; // width 5, height 5
+	final int PARTICLE_SIZE = 4; // width 5, height 5
+	final static int MAX_VEL = 4; //max velocity of particals
 	
 	ArrayList<Particle[]> allParticles = new ArrayList<Particle[]>();
 	
@@ -30,22 +31,22 @@ public class MyPanel extends JPanel implements ActionListener {
 	
 	
 	MyPanel() {
-		this.setPreferredSize(new Dimension(PANEL_HEIGHT,PANEL_WIDTH));
+		this.setPreferredSize(new Dimension(PANEL_WIDTH,PANEL_HEIGHT));
 		this.setBackground(Color.BLACK);
 		
 		timer = new Timer(INTERVAL, this);
 		timer.start();
 		
-		green = createParticles(3,Color.GREEN);
+		green = createParticles(5,Color.GREEN);
 		yellow = createParticles(4,Color.YELLOW);
-		blue = createParticles(4,Color.CYAN);
-		red = createParticles(15,Color.RED);
+		blue = createParticles(5,Color.CYAN);
+		red = createParticles(10,Color.RED);
 
 		
 		
 		allParticles.add(green);
-		
-		
+		allParticles.add(red);
+		allParticles.add(blue);
 	}
 	
 	
@@ -76,13 +77,23 @@ public class MyPanel extends JPanel implements ActionListener {
 				
 				double distance = Math.sqrt((distanceX*distanceX) + (distanceY*distanceY)); // x^2 + y^2 = sqrt(distance)
 				
-				if(distance > 0 && distance < 80) {
+				if(distance > 0) {
 					double force = g * 2 /distance;
-					fx += (force * distanceX);
-					fy += (force * distanceY);
+					fx = (force * distanceX);
+					fy = (force * distanceY);
 				}
 				a.vx = (a.vx + fx);
 				a.vy = (a.vy + fy);
+				
+				if(a.vx > MAX_VEL)
+					a.vx = MAX_VEL;
+				if(a.vy > MAX_VEL)
+					a.vy = MAX_VEL;
+				
+				if(a.vx < -MAX_VEL)
+					a.vx = -MAX_VEL;
+				if(a.vy < -MAX_VEL)
+					a.vy = -MAX_VEL;
 				
 				a.x += a.vx;
 				a.y += a.vy;
@@ -107,8 +118,9 @@ public class MyPanel extends JPanel implements ActionListener {
 		super.paint(g);
 		Graphics2D g2D = (Graphics2D) g;
 		
-		rule(green, green, -.5);
-		rule(red, red, -.01);
+		rule(red, red, -.05);
+		rule(green, green, -.01);
+		rule(blue, blue, -.1);
 		
 
 		for(Particle[] array : allParticles ) {
