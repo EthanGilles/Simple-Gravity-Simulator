@@ -39,13 +39,15 @@ public class MyPanel extends JPanel implements ActionListener {
 		
 		green = createParticles(5,Color.GREEN);
 		yellow = createParticles(4,Color.YELLOW);
-		blue = createParticles(5,Color.CYAN);
+		blue = createParticles(6,Color.CYAN);
 		red = createParticles(4,Color.RED);
 
 		
 		
 		allParticles.add(green);
 		allParticles.add(red);
+		allParticles.add(blue);
+		allParticles.add(yellow);
 	}
 	
 	
@@ -76,7 +78,7 @@ public class MyPanel extends JPanel implements ActionListener {
 				
 				double distance = Math.sqrt((distanceX*distanceX) + (distanceY*distanceY)); // x^2 + y^2 = sqrt(distance)
 				
-				if(distance > 0) {
+				if(distance > 0 && distance < 200) {
 					double force = g * 2 /distance;
 					fx = (force * distanceX);
 					fy = (force * distanceY);
@@ -118,7 +120,11 @@ public class MyPanel extends JPanel implements ActionListener {
 		Graphics2D g2D = (Graphics2D) g;
 		
 		rule(green, green, -.02);
+		rule(yellow, green, -.05);
+		rule(red, yellow, .05);
+		rule(yellow, red, .05);
 		rule(red, red, -.05);
+		rule(blue, red, -.05);
 		
 
 		for(Particle[] array : allParticles ) {
