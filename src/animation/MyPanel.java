@@ -37,7 +37,7 @@ public class MyPanel extends JPanel implements ActionListener {
 		timer = new Timer(INTERVAL, this);
 		timer.start();
 		
-		green = createParticles(5,Color.GREEN);
+		green = createParticles(7,Color.GREEN);
 		yellow = createParticles(4,Color.YELLOW);
 		blue = createParticles(6,Color.CYAN);
 		red = createParticles(4,Color.RED);
