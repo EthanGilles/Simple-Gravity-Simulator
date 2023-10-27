@@ -39,8 +39,10 @@ More examples:
 Note, in this one, blue isnt attracted to itself, just the red particles.
 Same goes for the yellow, being atrracted only to the green.
 However, the red is attracted to itself, and so is the green.
+
 <img src="https://github.com/EthanGilles/Simple-Gravity-Simulator/blob/main/screenshots/rungif2.gif">
------------------------------------------------
+
+
 In this one you can see some more advanced movement coming out. With the red and blue chasing away yellow but not green.
 Some of the sling shots and small little orbitals in just a 10 second period can be interesting to trace.
 Its also fun to watch how certain clusters break apart, just to reform, then instantly break again, with lone particles being distant from massive collisions.
