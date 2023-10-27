@@ -18,7 +18,6 @@ A 'Rule' has the following parameters:
 The 'Rule' method looks as follows
 
 <img src="https://github.com/EthanGilles/Simple-Gravity-Simulator/blob/main/screenshots/rulecode.png">
---------------------------------------------------------------------------------------------------
 <h2>Using the Program</h2>
 
 To create a new rule, just add another rule method to the 'paint()' method in myPanel. This updates the current position of the particle right before all of the particles are drawn onto the panel.
