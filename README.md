@@ -12,9 +12,9 @@ Currently, I have particles oscilating around eachother, bouncing off the sides 
 
 A 'Rule' has the following parameters:
 
-1. Particles Force is being applied to
-2. Partciles Force is coming from
-3. Force, negative for attraction, postive for repulsion.
+1. Particles Force is being applied to (p1)
+2. Partciles Force is coming from (p2)
+3. Force, negative for attraction, postive for repulsion. (g)
 
 The 'Rule' method looks as follows
 
