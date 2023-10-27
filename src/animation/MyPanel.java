@@ -45,7 +45,6 @@ public class MyPanel extends JPanel implements ActionListener {
 		
 		
 		allParticles.add(green);
-		allParticles.add(red);
 		allParticles.add(blue);
 	}
 	
@@ -118,9 +117,8 @@ public class MyPanel extends JPanel implements ActionListener {
 		super.paint(g);
 		Graphics2D g2D = (Graphics2D) g;
 		
-		rule(red, red, -.05);
-		rule(green, green, -.01);
-		rule(blue, blue, -.1);
+		rule(green, green, -.02);
+		rule(blue, blue, -.03);
 		
 
 		for(Particle[] array : allParticles ) {
